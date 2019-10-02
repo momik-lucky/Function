@@ -1,0 +1,43 @@
+<?php
+//3. Sum of all array elements
+
+$input = array(2, 1, 2, 7, 9, array(4, 5, 5, 7, array(7, 8, 3, 4, 9)));
+
+function sum($arr){
+    $sum=0;
+    foreach($arr as $recCall){
+        if(is_array($recCall))
+            $sum+= sum($recCall);
+        else
+            $sum += $recCall;
+    }
+    return $sum;
+}
+
+echo sum($input);
+
+
+//4. Function which will return all intersecting elements of two arrays
+
+$array1 = array("7","41","36","77", "99", "3", "89");
+
+$array2 = array("9","36","41","99", "77", "5", "3");
+
+$final_array = array();
+
+foreach($array1 as $key=>$val){
+    if(in_array($val,$array2)){
+        $final_array[] = $val;
+    }
+}
+
+print_r($final_array);
+
+
+//5. Function will return only “even” array elements
+
+$array = array("7","41","36","77", "99", "3", "89","36","77", "99");
+for ($i=0; array_key_exists($i, $array); $i+=2) {
+    echo $array[$i] . "\n";
+}
+
